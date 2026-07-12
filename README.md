@@ -1,4 +1,4 @@
-# Lumen Tri-Track Dev（三轨稳定开发法）
+﻿# Lumen Tri-Track Dev（三轨稳定开发法）
 
 > **正确的代码只进不退，错误的修改随时可回滚，项目目标永不丢失。**
 
