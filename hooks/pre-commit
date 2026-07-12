@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# 硬防线: 禁止直接在 main/staging 上提交;main 上提交前必须测试通过
+BRANCH=$(git branch --show-current)
+TEST_CMD="${TEST_CMD:-bash scripts/run_tests.sh}"
+
+if [[ "$BRANCH" == "staging" ]]; then
+  echo "❌ 禁止直接在 staging 上提交,staging 只能由 promote.sh 同步"
+  exit 1
+fi
+
+if [[ "$BRANCH" == "main" ]]; then
+  # 仅允许 cherry-pick 过程中的提交,且必须测试通过
+  if ! $TEST_CMD; then
+    echo "❌ main 上测试未通过,拒绝提交"
+    exit 1
+  fi
+fi
+exit 0
