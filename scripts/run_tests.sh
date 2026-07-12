@@ -1,3 +1,3 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 echo "OK: no tests for skill project"
 exit 0
